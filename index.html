@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">WeatherApp</a>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h1 style="color:white; text-align:center; margin-top:150px;">Welcome to WeatherApp</h1>
+    </section>
+
+
+    <section id="search" class="search-section">
+        <div class="search-heading">
+            <h2>Search City Weather</h2>
+        </div>
+        <div class="search-box">
+
+            <input type="text" id="cityInput" placeholder="Enter a city name (e.g., London, Mumbai)">
+
+            <button id="searchBtn">Search</button>
+
+        </div>
+        <div id="searchResults" class="result-box"></div>
+        <div id="recentSearches" class="recent-box"></div>
+        <p id="errorMsg" class="error-message"></p>
+    </section>
+    <div id="weather-details" class="active"></div>
+    <section id="weather" class="weather-section">
+        <h2 id="cityName"></h2>
+        <p id="current-date"></p>
+        <div id="icon-box">
+            <img id="weather-icon" src="" alt="Weather Icon">
+            <p id="description"></p>
+        </div>
+        <p id="humidity"></p>
+        <p id="wind"></p>
+        <p id="pressure"></p>
+        <p id="temperature"></p>
+        <button id="toggleUnitBtn">Change to °F</button>
+    </section>
+    <section id="about">
+        <h2>About WeatherApp</h2>
+        <p>Weatherify is a simple web application that allows users to search for current weather information for any
+            city around the world. It provides details such as temperature, humidity, wind speed, and atmospheric
+            pressure.</p>
+        <p>This application fetches real-time weather data from a public API.</p>
+        <p>To view the weather details, search the city name in search bar and click the city from the results shown.
+        </p>
+    </section>
+    <footer id="footer">
+        <div class="footer-profile">
+            <img src="images.png" class="image" alt="my profile">
+            <a href="https://www.linkedin.com/in/gaurav-murugesan-11a704386?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B%2BbeDnm%2B1TNavgu3zSGJLIw%3D%3D"
+                target="_blank">View linkedin</a>
+        </div>
+
+        <p>Developed by Gaurav Murugesan</p>
+        <a href="terms.html" target="_blank" class="terms">Terms and Conditions</a>
+
+    </footer>
+    <button id="backToTopBtn">↑</button>
+    <script src="sample1.js"></script>
+</body>
+
+
+</html>

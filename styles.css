@@ -1,0 +1,462 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial, sans-serif';
+    min-height: 100vh;
+    background: url(Earth-Around-Us-First-Photograph-16x9.jpg) no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+}
+
+.navbar-logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-container .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navbar-container .navbar-menu li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 2px solid rgb(46, 30, 108);
+    transition: all 0.8s ease;
+    white-space: nowrap;
+}
+
+.navbar-container .navbar-menu li a:hover {
+    background: rgba(90, 136, 168, 0.8);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.navbar-toggle {
+    display: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        backdrop-filter: transparent;
+    }
+
+    .navbar-container .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.7rem !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: white 0 10px 20px rgba(0, 0, 0, 0.5);
+        backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-toggle {
+        display: block;
+        z-index: 999;
+    }
+}
+
+.navbar-container .navbar-menu.active {
+    display: flex;
+}
+
+
+.navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.7rem;
+    }
+
+    .navbar-container .navbar-menu li a {
+        font-size: 1.2rem;
+        padding: 3px 15px;
+    }
+}
+
+.search-section {
+    text-align: center;
+    margin: 10px auto;
+    max-width: 2000rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+}
+
+.search-box input {
+    width: 500px;
+    padding: 10px;
+    border: 2px solid #888;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #013a74;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.search-box button:hover {
+    background: #025fa3;
+}
+
+#errorMsg {
+    margin-top: 10px;
+    color: red;
+    font-size: 16px;
+    text-align: center;
+}
+
+.search-heading {
+    color: white;
+    font-size: 1.25rem;
+    margin-top: 150px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-right: 30px;
+}
+
+#cityInput {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+
+#searchResults {
+    margin-top: 20px;
+    font-style: oblique;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+#recentSearches {
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.weather-heading {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+}
+
+.weather-content {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+#cityName {
+    font-size: 2.9rem;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+#description {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+#temperature {
+ font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    padding: 10px 20px;
+    margin: 10px auto;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+#weather {
+    position: relative;
+    min-height: 100vh;
+}
+#current-date {
+    font-size: 1.4rem;
+    color: white;
+    text-align: center;
+}
+
+#humidity,#wind,#pressure {
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: left;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+    width: 270px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#about {
+    margin: 100px auto;
+    max-width: 800px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.footer-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-profile .image {
+    width: 40px;
+    height: auto;
+    border-radius: 8px;
+}
+
+section {
+    padding: 100px 20px;
+    box-sizing: border-box;
+}
+
+#weather,#recentSearches {
+    display: none;
+}
+
+.text {
+    text-align: center;
+}
+
+
+footer a {
+    color: #00aced;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.image {
+    width: 40px;
+    height: auto;
+    border-radius: 8px;
+    
+}
+
+#backToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 20px;
+    background-color: #013a74;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    margin-bottom: 50px;
+}
+
+#backToTopBtn:hover {
+    background-color: #025fa3;
+}
+
+#recentSearches {
+    display: none;
+}
+
+
+footer {
+    margin-top: auto;
+}
+
+#weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+#icon-box {
+    position: absolute;
+    right: 50px;
+    top: 200px;
+    width: 180px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#toggleUnitBtn {
+    margin: 15px auto;
+    display: block;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    background: #013a74;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggleUnitBtn:hover {
+    background: #025fa3;
+}
+
+.terms {
+    color: white;
+    text-decoration: underline;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    #weather {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* space between all weather elements */
+    }
+
+    #icon-box {
+        position: static;  
+        margin: 20px auto;
+        width: 90%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* spacing inside the icon box */
+        text-align: center;
+    }
+
+    #humidity, #wind, #pressure {
+        width: 90%;
+        max-width: 300px;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    #temperature {
+        width: fit-content;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    #description {
+        margin: 0;
+        text-align: center;
+    }
+}
